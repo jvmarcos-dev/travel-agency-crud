@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta http-equiv="Cache-Control" content="no-store">
+<meta name="description" content="CRUD Síncrono">
+<meta name="author" content="Juan Valentín Marcos Argandoña">
+<link rel="shortcut icon" href="imagenes/icon.png" />
+<title>Explora mundo</title>
+<link href="ficheros/estilo_menu.css" rel="stylesheet">
+<link href="ficheros/all.css" rel="stylesheet">
+</head>
+<script type="text/javascript">
+	function cambio_imagen1(objeto, nimagen) {
+		document.getElementById(objeto).src = nimagen;
+	}
+	function cambio_imagen2(objeto, nimagen) {
+		document.getElementById(objeto).src = nimagen;
+	}
+	function inicio() {
+	}
+</script>
+<header>
+	<div class="BarraNavegar">
+		<div id="cabecera">
+			<img id="logo" src="imagenes/logo.png">
+		</div>
+		<div class="Opcion_menu_icono">
+			<i class="fas fa-bars fa-lg"></i>
+		</div>
+		<nav class="Grupo_opciones">
+			<label id="inicio" class="label">Inicio</label>
+			<label id="reserva" class="label" onclick="window.open('alta/alta.html','_parent');">Reserva</label>
+			<label id="listado" class="label" onclick="window.open('listado/listado.php','_parent');">Listado de viajes</label>
+		</nav>
+	</div>
+</header>
+<div id="contenedor" class="contenedor">
+	<img class="paisaje" src="imagenes/paisaje.jpg" alt="imagen de un paisaje">
+	<div class="losbotones">
+		<button id="b1" onclick="window.open('alta/alta.html','_parent');">
+			<i class="fas fa-pencil-alt icono"></i>
+			<span>NUEVA RESERVA</span></button>
+		<button id="b2" onclick="window.open('listado/listado.php','_parent');"> <i class="far fa-file-alt icono"></i>
+			<span>LISTADO DE VIAJES</span></button>
+	</div>
+	<div id="lasmaravillas">
+		<div id="textomaravillas">
+			<h2 id="titulo">Explora las Maravillas del Mundo</h2>
+			<p id="descripcion">Embárcate en un viaje a través de la historia y descubre la grandeza
+				de las civilizaciones más icónicas. Desde la majestuosidad de la Gran Muralla
+				hasta el histórico Machu Picchu, reserva tu próxima aventura con Explora Mundo.</p>
+		</div>
+		<div id="imagenesmaravillas">
+			<div class="lasimagenes">
+				<img class="maravillas" src="imagenes/muralla.jpg" alt="La Gran Muralla China">
+				<p class="textoimagen">La Gran Muralla China</p>
+			</div>
+			<div class="lasimagenes">
+				<img class="maravillas" src="imagenes/petra.jpg" alt="Petra">
+				<p class="textoimagen">Petra</p>
+			</div>
+			<div class="lasimagenes">
+				<img class="maravillas" src="imagenes/coliseo.jpg" alt="El Coliseo Romano">
+				<p class="textoimagen">El Coliseo Romano</p>
+			</div>
+			<div class="lasimagenes">
+				<img class="maravillas" src="imagenes/machupicchu.jpg" alt="Machu Picchu">
+				<p class="textoimagen">Machu Picchu</p>
+			</div>
+			<div class="lasimagenes">
+				<img class="maravillas" src="imagenes/taj mahal.jpg" alt="El Taj Mahal">
+				<p class="textoimagen">El Taj Mahal</p>
+			</div>
+			<div class="lasimagenes">
+				<img class="maravillas" src="imagenes/chichernitza.jpg" alt="Chichén Itzá">
+				<p class="textoimagen">Chichén Itzá</p>
+			</div>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="BarraNavegar2">
+		<div id="cabecera2">
+			<img id="logo2" src="imagenes/logo.png">
+		</div>
+	</div>
+</footer>
+</body>
+</html>
+<script type="text/javascript">
+	function visualizo_menu() {
+		var opciones_menu = document.querySelectorAll('.Grupo_opciones');
+		opciones_menu.forEach(nav => { nav.classList.toggle('Navbar_ToggleShow'); });
+	}
+	document.querySelector('.Opcion_menu_icono').addEventListener('click', visualizo_menu);
+</script>
