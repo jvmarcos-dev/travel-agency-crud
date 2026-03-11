@@ -1,0 +1,5 @@
+**/conexion.php
+.vscode/
+fiveserver.config.js
+.DS_Store
+Thumbs.db
