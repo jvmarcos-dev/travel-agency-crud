@@ -1,0 +1,146 @@
+.boton {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 15px;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.boton:hover {
+  background-color: RoyalBlue;
+}
+.boton:disabled {
+  background-color: red;
+  cursor: not-allowed;
+}
+#criterio1, #criterio2, #dni {
+	cursor: pointer;
+	font-size: 18px;
+	font-family: calibri;
+	width: 150px;
+	height: 31px;
+	margin-left: 10px;
+	margin-right: 0;
+	margin-top: 25px;
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+#criterio2 {
+	margin-right: 25px;
+}
+#dni {
+	cursor: text;
+	text-align: center;
+	border-right: none;
+	border-radius: 4px 0 0 4px;
+	width: 100%;
+}
+#dni:focus {
+	outline: none;
+}
+#elselect {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+	margin: auto;
+	gap: 20px;
+}
+#buscador {
+	display: flex;
+	min-width: 200px;
+}
+.lupa {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 12px;
+	color: white;
+	background-color: #36644b;
+	border: 1px solid #36644b;
+	border-radius: 0 4px 4px 0;
+	cursor: pointer;
+	margin-top: 25px;
+}
+.lupa:hover {
+	background-color: #2d5340;
+}
+#c1 {
+	width: 60px;
+	margin-top: 40px;
+	margin-left: 10px;
+}
+#boton1 {
+	margin-bottom: 10px;
+}
+@media (max-width: 1000px) {
+	#elselect {
+		align-items: flex-end;
+		width: 80%;
+	}
+	#izquierda, #buscador, #derecha {
+		display: flex;
+		align-items: flex-start;
+	}
+	#izquierda, #derecha {
+		flex-direction: column;
+		align-items: center;
+	}
+	#c1, #c2 {
+		margin-left: 0;
+		margin-bottom: 8px;
+		width: auto;
+	}
+	#criterio1, #criterio2, #dni {
+		margin-top: 0;
+		margin-left: 0;
+	}
+	#criterio2 {
+		margin-right: 0;
+	}
+	.lupa {
+		margin-top: 0;
+		padding: 7px 12px;
+	}
+}
+@media (max-width: 780px) {
+	.boton {
+		margin-right: 0px;
+		margin-left: 0px;
+		font-size: 14px;
+	}
+
+	#elselect {
+		width: 95%;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 10px;
+	}
+
+	#izquierda {
+		order: 1;
+		width: 48%;
+	}
+
+	#derecha {
+		order: 2;
+		width: 48%;
+	}
+
+	#criterio1,
+	#criterio2 {
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	#buscador {
+		order: 3;
+		width: 100%;
+		justify-content: center;
+		margin-top: 15px;
+	}
+}

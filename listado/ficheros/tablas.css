@@ -1,0 +1,171 @@
+table {
+    width: 80%;
+    border: 0px solid red;
+    background-color: #FFFDF5;
+    margin: auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+table th,
+table td {
+    vertical-align: middle;
+    padding: 10px;
+    border: 1px solid grey;
+    font-family: calibri;
+    font-size: 18px;
+}
+#izquierda {
+    border-top-left-radius: 10px;
+}
+#derecha {
+    border-top-right-radius: 10px;
+}
+#papelera {
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	vertical-align: middle;
+}
+table th {
+    text-align: left;
+    background-color: #414141;
+    color: white;
+    position: sticky;
+    top: -5px;
+    z-index: 10;
+}
+table tr:hover td {
+    background-color: #d4e3cc;
+}
+table td {
+    height: 55px;
+}
+table th:nth-child(1),
+table td:nth-child(1) {
+    width: 10%;
+    text-align: center;
+}
+table th:nth-child(2),
+table td:nth-child(2) {
+    width: 20%;
+    text-align: left;
+}
+table th:nth-child(3),
+table td:nth-child(3),
+table th:nth-child(4),
+table td:nth-child(4) {
+    width: 15%;
+    text-align: center;
+}
+table th:nth-child(5),
+table td:nth-child(5) {
+    width: 10%;
+    text-align: center;
+}
+table th:nth-child(6),
+table td:nth-child(6) {
+    width: 12%;
+    text-align: center;
+}
+table th:nth-child(7),
+table td:nth-child(7) {
+    width: 12%;
+    text-align: center;
+}
+table th:nth-child(8),
+table td:nth-child(8) {
+    width: 6%;
+    text-align: center;
+}
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+#pongotabla {
+    overflow: auto;
+    margin-top: 20px;
+    border: solid 0px green;
+    width: 100%;
+    border-radius: 8px;
+}
+#nelementos {
+    font-family: calibri;
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+}
+#adorno {
+    text-align: center;
+    font-family: calibri;
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+#marca {
+    cursor: pointer;
+}
+
+@media (max-width: 780px) {
+    table, thead, tbody, th, td, tr {
+        box-sizing: border-box;
+    }
+    table {
+        width: 95%;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+    }
+    table thead, table tbody, table th, table td, table tr {
+        display: block;
+    }
+    table thead tr {
+        display: none;
+    }
+
+    table tr:hover td {
+    background-color: #FFFDF5;
+}
+    table tr {
+        background-color: #FFFDF5;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        text-align: right;
+        width: 100% !important; 
+        height: auto;
+        padding: 12px 15px;
+    }
+
+    table td:last-child {
+        border-bottom: none;
+        justify-content: center;
+    }
+    table td::before {
+        font-weight: bold;
+        color: #414141;
+        text-align: left;
+        padding-right: 15px;
+    }
+    table td:nth-child(1)::before { content: "DNI:"; }
+    table td:nth-child(2)::before { content: "NOMBRE:"; }
+    table td:nth-child(3)::before { content: "ORIGEN:"; }
+    table td:nth-child(4)::before { content: "DESTINO:"; }
+    table td:nth-child(5)::before { content: "CLASE:"; }
+    table td:nth-child(6)::before { content: "FECHA:"; }
+    table td:nth-child(7)::before { content: "ESTANCIA:"; }
+    table td:nth-child(8)::before { content: "BORRAR:"; }
+}
