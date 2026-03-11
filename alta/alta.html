@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta http-equiv="Cache-Control" content="no-store">
+<meta name="description" content="CRUD básico: acceso a Base de Datos-PHP/SQL">
+<meta name="author" content="Juan Valentín Marcos Argandoña">
+<link rel="shortcut icon" href="../imagenes/icon.png" />
+<title>Reserva de viaje</title>
+<link href="ficheros/estilo_menu.css" rel="stylesheet">
+<link href="ficheros/all.css" rel="stylesheet">
+<link href="ficheros/formularios.css" rel="stylesheet">
+</head>
+<body id="body">
+	<header>
+		<div class="BarraNavegar">
+			<div id="cabecera">
+				<img id="logo" onclick="window.open('../index.html','_parent');" src="../imagenes/logo.png">
+			</div>
+			<div class="Opcion_menu_icono">
+				<i class="fas fa-bars fa-lg"></i>
+			</div>
+			<nav class="Grupo_opciones">
+				<label id="inicio" class="label" onclick="window.open('../index.html','_parent');">Inicio</label>
+				<label id="reserva" class="label">Reserva</label>
+				<label id="listado" class="label" onclick="window.open('../listado/listado.php','_parent');">Listado de viajes</label>
+			</nav>
+		</div>
+	</header>
+	<div id="contenedor" class="contenedor">
+		<div id="cajapagina" class="contenedor2">
+			<div class="contenedor-formulario">
+				<form id="formulario1" name="formulario1" ENCTYPE="multipart/form-data"
+					ACTION="PHP_Alta_Usuario.php" METHOD="POST" TARGET="mensaje" autocomplete="off"
+					onsubmit="hago_cosas();">
+					<p class="leyenda">NUEVA RESERVA</p><br>
+					<div class="form-group">
+						<label class="titulo" for="dni">Documento de identificación: </label>
+						<input class="elinput" id="dni" name="dni" type="text" pattern="[0-9]{8}[A-Za-z]{1}"
+							minlength="9" maxlength="9" required autofocus
+							placeholder="11267905k">
+					</div>
+					<div class="form-group">
+						<label class="titulo" for="nombre">Nombre: </label>
+						<input class="elinput" id="nombre" name="nombre" type="text" minlength="1" maxlength="50" required
+							placeholder="Lucas Sánchez Martínez">
+					</div>
+					<div class="form-group">
+						<label class="titulo" for="origen">Origen: </label>
+						<input class="elinput" id="origen" name="origen" type="text" maxlength="50" required
+							placeholder="Albacete">
+					</div>
+					<div class="form-group">
+						<label class="titulo" for="destino">Destino: </label>
+						<select id="destino" name="destino" required>
+							<option value="" disabled selected>Selecciona un destino...</option>
+							<option value="china">China (La Gran Muralla China)</option>
+							<option value="petra">Jordania (Petra)</option>
+							<option value="roma">Roma (El Coliseo Romano)</option>
+							<option value="peru">Perú (Machu Picchu)</option>
+							<option value="india">India (El Taj Mahal)</option>
+							<option value="mexico">México (Chichén Itzá)</option>
+						</select>
+					</div>
+					<div class="form-group vuelo">
+						<p class="clasevuelo titulo">Clase del vuelo:</p>
+						<div id="lasopciones">
+							<label for="primera" class="elradio">
+								<input id="primera" name="clase_vuelo" type="radio" value="primera" checked required>
+								Primera clase
+							</label>
+							<label for="business" class="elradio">
+								<input id="business" name="clase_vuelo" type="radio" value="business" required>
+								Business
+							</label>
+							<label for="premium" class="elradio">
+								<input id="premium" name="clase_vuelo" type="radio" value="premium" required>
+								Económica Premium
+							</label>
+							<label for="economica" class="elradio">
+								<input id="economica" name="clase_vuelo" type="radio" value="economica" required>
+								Económica
+							</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="titulo" for="fecha">Fecha: </label>
+						<input class="elinput" id="fecha" name="fecha" type="date" required>
+					</div>
+					<div class="form-group">
+						<label class="titulo" for="estancia">Estancia (días): </label>
+						<input class="elinput" min="1" max="99" id="estancia" name="estancia" type="number" required placeholder="4"
+						oninput="if(this.value.length > 2) this.value = this.value.slice(0,2);">
+					</div>
+					<div id="abajo">
+						<button id="elboton" form="formulario1" type="submit">Realizar Reserva</button>
+						<iframe id="mensaje" name="mensaje" scrolling="no">
+						</iframe>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="BarraNavegar2">
+			<div id="cabecera2">
+				<img id="estrella" src="imagenes/estrella.gif" />
+				<img id="logo2" src="../imagenes/logo.png">
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
+<script type="text/javascript">
+	function pasofoco(objeto) {
+		document.getElementById(objeto).focus();
+		document.getElementById(objeto).select();
+	}
+	function borro_iFrame() {
+		mensaje.document.open();
+		mensaje.document.close();
+	}
+	function hago_cosas() {
+		borro_iFrame();
+		document.getElementById('estrella').style.visibility = 'visible';
+		document.getElementById('elboton').disabled = true;
+	}
+	function limpio_pantalla(estado) {
+		document.getElementById('estrella').style.visibility = 'hidden';
+		document.getElementById('elboton').disabled = false;
+		if (estado == 0) {
+			document.formulario1.reset();
+			ponerFechaHoy();
+			setTimeout("borro_iFrame()", 3000);
+			document.formulario1.dni.select();
+		}
+		else {
+			document.formulario1.dni.select();
+		}
+	}
+	function inicio() {
+	}
+	function ponerFechaHoy() {
+		const hoy = new Date().toISOString().split('T')[0];
+		document.getElementById('fecha').value = hoy;
+		document.getElementById('fecha').min = hoy;
+	}
+	window.onload = function () {
+		ponerFechaHoy();
+		document.querySelector('.Opcion_menu_icono').addEventListener('click', visualizo_menu);
+	}
+	function visualizo_menu() {
+		var opciones_menu = document.querySelectorAll('.Grupo_opciones');
+		opciones_menu.forEach(nav => { nav.classList.toggle('Navbar_ToggleShow'); });
+	}
+	document.querySelector('.Opcion_menu_icono').addEventListener('click', visualizo_menu);
+</script>
